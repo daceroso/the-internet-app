@@ -6,12 +6,12 @@ import com.theinternetapp.model.customer.Customer;
 import com.theinternetapp.model.customer.UserCredentials;
 import com.theinternetapp.pagesobjects.actions.authentication.Login;
 import com.theinternetapp.pagesobjects.actions.navigation.Navigate;
-import com.theinternetapp.utils.config.ConfigReader;
-import io.cucumber.java.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Map;
@@ -29,12 +29,11 @@ public class LoginStepDefinitions {
 
     @Before
     public void setUp() {
-        String defaultBrowser = ConfigReader.get("default.browser");
-        String browser = System.getProperty("browser", defaultBrowser);
-        driver = DriverFactory.initializeDriver(browser);
+        driver = DriverFactory.initializeDriver(null);
         navigate = new Navigate(driver);
         login = new Login(driver);
     }
+
 
     @After
     public void tearDown() {

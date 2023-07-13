@@ -1,5 +1,6 @@
 package com.theinternetapp.factory;
 
+import com.theinternetapp.utils.config.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,8 +8,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverFactory {
-
     public static WebDriver initializeDriver(String browser) {
+        if (browser == null || browser.isEmpty()) {
+            browser = ConfigReader.get("default.browser");
+        }
+
         WebDriver driver;
         switch (browser) {
             case "chrome" -> {
@@ -29,6 +33,5 @@ public class DriverFactory {
         driver.manage().window().maximize();
         return driver;
     }
-
-
 }
+
