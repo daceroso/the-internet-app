@@ -6,10 +6,9 @@ Feature: Status Codes Validation
     Scenario Outline: Navigate to different pages and verify status codes
       Given User is on the Status Codes page
       When User selects the <Status Code> status code page
-      Then  should return a response <Expected Response> with a status code <Status Code>
-
+      Then should return a expected response with a message <Response>
       Examples:
-        | Status Code | Expected Response                     |
+        | Status Code | Response                              |
         | 200         | This page returned a 200 status code. |
         | 301         | This page returned a 301 status code. |
         | 404         | This page returned a 404 status code. |

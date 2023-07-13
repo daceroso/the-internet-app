@@ -48,4 +48,16 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 
+    public void waitForPageTitle(String title) {
+        wait.until(ExpectedConditions.titleIs(title));
+    }
+
+    public void waitForPartialPageTitle(String partialTitle) {
+        wait.until(ExpectedConditions.titleContains(partialTitle));
+    }
+
+    public void waitForTextToBePresentInElement(By locator, String text) {
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
+    }
+
 }
