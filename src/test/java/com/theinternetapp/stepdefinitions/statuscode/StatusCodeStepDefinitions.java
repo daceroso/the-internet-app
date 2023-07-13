@@ -1,8 +1,8 @@
 package com.theinternetapp.stepdefinitions.statuscode;
 
 import com.theinternetapp.factory.DriverFactory;
-import com.theinternetapp.pagesobjects.actions.authentication.Login;
 import com.theinternetapp.pagesobjects.actions.navigation.Navigate;
+import com.theinternetapp.pagesobjects.actions.statuscode.StatusCode;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -10,8 +10,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
-import static com.theinternetapp.pagesobjects.actions.PageManager.login;
 import static com.theinternetapp.pagesobjects.actions.PageManager.navigate;
+import static com.theinternetapp.pagesobjects.actions.PageManager.statusCode;
 
 public class StatusCodeStepDefinitions {
 
@@ -22,7 +22,7 @@ public class StatusCodeStepDefinitions {
     public void setUp() {
         driver = DriverFactory.initializeDriver(null);
         navigate = new Navigate(driver);
-        login = new Login(driver);
+        statusCode = new StatusCode(driver);
     }
 
 
@@ -37,9 +37,9 @@ public class StatusCodeStepDefinitions {
         navigate.toTheStatusCodePage();
     }
 
-    @When("User selects the {int} status code page")
-    public void userSelectsTheStatusCodePage(Integer int1) {
-
+    @When("User selects the status code {}")
+    public void userSelectsTheStatusCodePage(String statusCodes) {
+        statusCode.clickOn(statusCodes);
     }
 
     @Then("should return a expected response with a message {}")

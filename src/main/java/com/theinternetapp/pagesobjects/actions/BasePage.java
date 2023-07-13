@@ -3,11 +3,11 @@ package com.theinternetapp.pagesobjects.actions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class BasePage {
 
@@ -42,6 +42,11 @@ public class BasePage {
 
     protected void waitForVisibility(By locator) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public List<WebElement> getElements(By locator) {
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
+        return driver.findElements(locator);
     }
 
     protected void waitForElementToBeClickable(By locator) {
