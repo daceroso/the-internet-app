@@ -12,6 +12,7 @@ import org.openqa.selenium.WebDriver;
 
 import static com.theinternetapp.pagesobjects.actions.PageManager.navigate;
 import static com.theinternetapp.pagesobjects.actions.PageManager.statusCode;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class StatusCodeStepDefinitions {
 
@@ -44,5 +45,6 @@ public class StatusCodeStepDefinitions {
 
     @Then("should return a expected response with a message {}")
     public void shouldReturnAExpectedResponseWithAMessageResponse(String message) {
+        assertThat(statusCode.getResponseMessage()).contains(message);
     }
 }

@@ -1,11 +1,12 @@
 package com.theinternetapp.pagesobjects.actions;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
@@ -64,5 +65,20 @@ public class BasePage {
     public void waitForTextToBePresentInElement(By locator, String text) {
         wait.until(ExpectedConditions.textToBePresentInElementLocated(locator, text));
     }
+
+
+    public void takeScreenshot(String filename) {
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        String destination = System.getProperty("user.dir") + "/Screenshots/" + filename + ".png";
+        try {
+            FileUtils.copyFile(srcFile, new File(destination));
+        } catch (IOException e) {
+            System.out.println("Error occurred while taking screenshot: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+
+
 
 }

@@ -13,6 +13,8 @@ public class StatusCode extends BasePage {
     public static final By PAGE_TITLE = By.xpath("//h3[text()='Status Codes']");
     public static final By STATUS_CODE_LIST = By.xpath("//ul/li/a");
 
+    public static final By RESPONSE_MESSAGE = By.cssSelector("#content > div > p");
+
     public StatusCode(WebDriver driver) {
         super(driver);
     }
@@ -26,4 +28,8 @@ public class StatusCode extends BasePage {
     }
 
 
+    public String getResponseMessage() {
+        waitForVisibility(RESPONSE_MESSAGE);
+        return getText(RESPONSE_MESSAGE);
+    }
 }

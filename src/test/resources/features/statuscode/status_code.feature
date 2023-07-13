@@ -3,6 +3,7 @@ Feature: Status Codes Validation
 
   Rule: Status Code corresponds to the expected response
 
+    @statusCodes
     Scenario Outline: Navigate to different pages and verify <Status Code> code
       Given User is on the Status Codes page
       When User selects the status code <Status Code>

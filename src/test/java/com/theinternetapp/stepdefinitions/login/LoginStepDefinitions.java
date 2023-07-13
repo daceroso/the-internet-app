@@ -4,6 +4,7 @@ package com.theinternetapp.stepdefinitions.login;
 import com.theinternetapp.factory.DriverFactory;
 import com.theinternetapp.model.customer.Customer;
 import com.theinternetapp.model.customer.UserCredentials;
+import com.theinternetapp.pagesobjects.actions.BasePage;
 import com.theinternetapp.pagesobjects.actions.authentication.Login;
 import com.theinternetapp.pagesobjects.actions.navigation.Navigate;
 import io.cucumber.java.After;
@@ -25,6 +26,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class LoginStepDefinitions {
 
     private WebDriver driver;
+    private BasePage basePage;
 
 
     @Before
@@ -59,6 +61,7 @@ public class LoginStepDefinitions {
     @Then("should be presented with the success message")
     public void shouldBePresentedWithTheSuccessMessage() {
         assertThat(login.withWelcomeMessage()).isEqualTo(welcome.message);
+        basePage.takeScreenshot(welcome.message);
     }
 
     @When("User attempts to login with then following credentials:")
@@ -70,6 +73,7 @@ public class LoginStepDefinitions {
     @Then("should be presented with the error message {}")
     public void shouldBePresentedWithTheErrorMessage(String errorMessage) {
         assertThat(login.withErrorMessage()).contains(errorMessage);
+        basePage.takeScreenshot(errorMessage);
     }
 
 
