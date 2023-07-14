@@ -61,7 +61,6 @@ public class LoginStepDefinitions {
     @Then("should be presented with the success message")
     public void shouldBePresentedWithTheSuccessMessage() {
         assertThat(login.withWelcomeMessage()).isEqualTo(welcome.message);
-        basePage.takeScreenshot(welcome.message);
     }
 
     @When("User attempts to login with then following credentials:")
@@ -73,7 +72,6 @@ public class LoginStepDefinitions {
     @Then("should be presented with the error message {}")
     public void shouldBePresentedWithTheErrorMessage(String errorMessage) {
         assertThat(login.withErrorMessage()).contains(errorMessage);
-        basePage.takeScreenshot(errorMessage);
     }
 
 

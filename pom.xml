@@ -91,6 +91,9 @@
                             <value>io.qameta.allure.junit4.AllureJunit4</value>
                         </property>
                     </properties>
+                    <includes>
+                        <include>**/*Suite.java</include>
+                    </includes>
                 </configuration>
                 <dependencies>
                     <dependency>
