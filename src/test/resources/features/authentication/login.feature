@@ -8,7 +8,7 @@ Feature: Login's all good
       When  User provides valid credentials
       Then  should be presented with the success message
 
-    @login_invalid
+    @loginInvalid
     Scenario Outline: Login with invalid credentials for <username>
       Given User is on the login page
       When User attempts to login with then following credentials:
