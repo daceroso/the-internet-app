@@ -8,7 +8,7 @@ Feature: Verification of User Addresses
     When User fetches the details for the user "<User>"
       | Street   | Suite   | City   | Zipcode   | Latitude   | Longitude   |
       | <Street> | <Suite> | <City> | <Zipcode> | <Latitude> | <Longitude> |
-    Then should return an existence of the user "<User>"
+    Then should return an existence of the user "<User>" information
     Examples:
       | User                     | Street           | Suite     | City      | Zipcode | Latitude | Longitude |
       | Nicholas Runolfsdottir V | Ellsworth Summit | Suite 729 | Aliyaview | 45169   | -14.3990 | -120.7677 |
