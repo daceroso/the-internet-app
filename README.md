@@ -6,6 +6,7 @@ This repository contains an automated testing suite for ["The Internet" applicat
 
 1. **Login:** This includes testing for valid and invalid credentials.
 2. **Status Codes:** This includes testing for various HTTP status codes and their corresponding responses.
+3. **User Verification:** This includes testing for rest api calls to verify user information.
 
 
 ### Built with:
@@ -18,5 +19,6 @@ This repository contains an automated testing suite for ["The Internet" applicat
 - Gherkin
 - Allure
 - AssertJ
+- rest-assured
 - log4j2
 
