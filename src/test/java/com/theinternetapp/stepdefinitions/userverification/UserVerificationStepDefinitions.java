@@ -33,6 +33,7 @@ public class UserVerificationStepDefinitions {
 //        Optional<User> userOptional = userApi.getUserByName(userName);
 //        Assertions.assertThat(userOptional).isPresent().withFailMessage("User not found");
 //        currentUser = userOptional.get();
+
     }
 
     @When("User fetches the details for the user {string}")
